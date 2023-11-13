@@ -1,7 +1,7 @@
 package P1;
 
 public class General {
-    public static void reverse(Integer number) {
+    public static void reverse(int number) {
         int reverse = 0;
         for (; number != 0; ) {
             int remainder = number % 10; //if number =456 ---> remainder=6
