@@ -1,14 +1,14 @@
 package P1;
 
 public class General {
-    public static void reverse(int number) {
+    public static int reverse(int number) {
         int reverse = 0;
-        for (; number != 0; ) {
+        while ( number != 0 ) {
             int remainder = number % 10; //if number =456 ---> remainder=6
             reverse = (reverse * 10) + remainder;
             number /= 10;
         }
-        System.out.println(reverse);
+        return reverse;
     }
 
     public static int getRandomValue(int value) {
@@ -21,7 +21,7 @@ public class General {
     }
 
     public static char getRandomCharacter() {
-        return (char) ((int) ((Math.random() * (1000000000 - 33)) + 33));
+        return (char) ((int) ((Math.random() * ('z' - 'a')) + 'a'));
 
     }
 
