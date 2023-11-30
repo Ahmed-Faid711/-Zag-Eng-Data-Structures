@@ -1,13 +1,14 @@
 public class dynamicArray {
     int size;
     int[] array;
-    int count=0;
+    int count = 0;
+
     public dynamicArray(int n) {
         size = n;
         array = new int[size];
     }
 
-    public  dynamicArray() {
+    public dynamicArray() {
         size = 100;
         array = new int[size];
     }
@@ -29,12 +30,11 @@ public class dynamicArray {
     }
 
     public void removeAt(int index) {
-        if(index>=0&&index<count){
-        for (int i = index; i < count; i++)
-            array[i] = array[i + 1];
-        count--;
-        }
-        else System.out.println("your value doesn't exist");
+        if (isValidIndex(index)) {
+            for (int i = index; i < count - 1; i++)
+                array[i] = array[i + 1];
+            count--;
+        } else throw new IllegalStateException("your index doesn't exist");
     }
 
     public int indexOf(int value) {
@@ -51,17 +51,17 @@ public class dynamicArray {
         if (x != -1)
             removeAt(x);
 
-        else System.out.println("your value doesn't exist");
+        else throw new IllegalStateException("your value doesn't exist");
     }
-    public int at(int index){
-        for (int i=0 ;i<count;i++)
-            if (array[index] == array[i])
-                return array[i];
 
+    public int at(int index) {
+        if (isValidIndex(index))
+            return array[index];
         return -1;
     }
+
     public int max() {
-        int max = 0;
+        int max = array[0];
         for (int i = 0; i < count; i++)
             if (max < array[i])
                 max = array[i];
@@ -76,12 +76,16 @@ public class dynamicArray {
         return min;
     }
 
+    public boolean isValidIndex(int index) {
+        return (index >= 0 && index < count);
+
+    }
+
 
     public void printArray() {
         for (int i = 0; i < count; i++)
             System.out.println(array[i]);
     }
-
 
 }
 
