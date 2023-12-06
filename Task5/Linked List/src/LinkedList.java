@@ -140,7 +140,7 @@ public class LinkedList<T> {
             System.out.println(x);
         }
     }
-    public void reverse(){
+    public void reverse(){                //O(n)
         Node previous=first;
         Node current =first.nextNode;
         while (current!=null){
